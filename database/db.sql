@@ -17,7 +17,7 @@ alter table users
 alter table users 
     modify id int(11) not null AUTO_INCREMENT ,  AUTO_INCREMENT = 2;
 
-describe users; /* Esto es para ver una tabla en este caso llamada users, y a demas nos permite ver sus atributs y tipo de dato  */
+describe users; /* Esto es para ver una tabla en este caso llamada users, y a demas nos permite ver sus atributs y tipo de datos  */
 
 
 create table links(
@@ -36,3 +36,7 @@ alter table links
     modify id int(11) not null AUTO_INCREMENT , AUTO_INCREMENT = 2;
 
 describe links; 
+
+
+
+show tables;  /* Para ver las tablas creadas */

@@ -4,15 +4,15 @@
             <div class="card">
                 <div class="card-body">
                     {{!-- el action indica a que ruta enviara la informacion --}}
-                    <form action="/links/add" method="POST">
+                    <form action="/links/edit/{{link.id}}" method="POST">
                         <div class="form-group mb-3">
-                            <input type="text" class="form-control" name="title" placeholder="Title" autofocus> 
+                            <input type="text" value="{{link.title}}" class="form-control" name="title" placeholder="Title" autofocus> 
                         </div>
                         <div class="form-group mb-3">
-                            <input type="text" name="url" class="form-control" placeholder="URL"  >
+                            <input type="text" value="{{link.url}}" name="url" class="form-control" placeholder="URL"  >
                         </div>
                         <div class="form-group mb-3">
-                            <textarea name="description"  cols="2" class="form-control" placeholder="Description "></textarea>
+                            <textarea name="description"  cols="2" class="form-control" placeholder="Description ">{{link.description}}</textarea>
                         </div>
                         <div class="form-group mb-3"  >
                             <button class="btn btn-success " style="width: 100%"  type="submit" >

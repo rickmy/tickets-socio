@@ -2,9 +2,16 @@ const express = require("express");
 const morgan = require ("morgan");
 const exphbs = require("express-handlebars");
 const path = require("path");
+const flash = require("connect-flash");
+const session = require("express-session");
+const MySQLStore = require("express-mysql-session"); //Esto sirve para definir en que lugar voy a guardar las sesiones. Es necesario en storage de la session
+const { database } = require("./keys");
+const passport = require("passport");
 
 //Inicializaciones (Conexion a la DB express etc)
 const app = express();
+require("./lib/passport");
+
 
 // Setings  (las configuraciones del servidor)
 app.set("port" , process.env.PORT || 4000 );
@@ -24,20 +31,34 @@ app.set('view engine' , '.hbs');
 
 
 // Middlewares
+app.use( session({
+    secret : "fazrmysqlnodesession",
+    resave : false,
+    saveUninitialized : false,
+    store : new MySQLStore( database ) //gracias a esto las sessiones seran almacenadas en la base de datos
+}) )
+app.use( flash() );
 app.use( morgan('dev') );
 app.use( express.urlencoded({ extended : false })); //Esto es para decirle que solo voy a haceptar datos en cadena de texto, no imagenes no archivos, gracias a esto nos llegara iformacion desde el cliete
 app.use( express.json() );
+app.use( passport.initialize() );
+app.use( passport.session() );
+
+
 
 
 //Variables globales
 app.use( ( req , res , next ) => {
+    app.locals.success = req.flash("success");
+    app.locals.message = req.flash("message");
+    app.locals.user = req.user;
     next()
 });
 
 // Rutas 
 app.use(require("./routes/index.js"));
 app.use(require("./routes/authentication")); 
-app.use( "/link" , require("./routes/links"));  // => El "/link" lo que ara esque todas las rutas que creemos en este archivoo llamado links esque tenamos que primero poner "/link" . En este caso creamos una ruta llamda "/add" pero como pusimos aqui "/link" entonces  debemos primero escribir "/link" y luego si "/add" asi => "/link/add"
+app.use( "/links" , require("./routes/links"));  // => El "/link" lo que ara esque todas las rutas que creemos en este archivoo llamado links esque tenamos que primero poner "/link" . En este caso creamos una ruta llamda "/add" pero como pusimos aqui "/link" entonces  debemos primero escribir "/link" y luego si "/add" asi => "/link/add"
 
 
 //Archivos publicos
