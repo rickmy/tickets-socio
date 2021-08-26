@@ -1,28 +1,95 @@
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <div class="card">
-                <div class="card-body">
-                    {{!-- el action indica a que ruta enviara la informacion --}}
-                    <form action="/links/add" method="POST">
-                        <div class="form-group mb-3">
-                            <input type="text" class="form-control" name="title" placeholder="Title" autofocus> 
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="text" name="url" class="form-control" placeholder="URL"  >
-                        </div>
-                        <div class="form-group mb-3">
-                            <textarea name="description"  cols="2" class="form-control" placeholder="Description "></textarea>
-                        </div>
-                        <div class="form-group mb-3"  >
-                            <button class="btn btn-success " style="width: 100%"  type="submit" >
-                                Save
-                            </button>
-                        </div>
-                    </form>
+<div class="container p-4 ">
+    <div class="row justify-content-center align-items-center">
+        {{!-- TARJETA 1 --}}
+        <div class="col card p-3">
+            <div class="card-body">
+                <div class="h1 m-0  mb-3 text-center text-success">32GB</div>
+                <hr class="m-0 ">
+                <div class="text-center my-3">Recibe</div>
+                <div class="row">
+                    <div class="col h-6 text-center">
+                        <div>5 GB</div>
+                        <div>4 GB</div>
+                        <div>8 GB</div>
+                        <div>15 GB</div>
+                    </div>
+                    <div class="col text-left" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        <div>Whatsapp</div>
+                        <div>Redes sociales</div>
+                        <div>Para navegar</div>
+                        <div>Regalo primer mes</div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="h3 text-center">$13.00/mes</div>
+
+                <div class="mt-3">
+                    <button style="width: 100% " class="btn btn-success color-light">Lo quiero</button>
                 </div>
             </div>
         </div>
+
+        {{!-- TARJETA 2 --}}
+        <div class="col offset-1 card p-3">
+            <div class="card-body">
+                <div class="h1 m-0  mb-3 text-center text-danger">36GB</div>
+                <hr class="m-0 ">
+                <div class="text-center my-3">Recibe</div>
+                <div class="row">
+                    <div class="col h-6 text-center">
+                        <div>5 GB</div>
+                        <div>4 GB</div>
+                        <div>8 GB</div>
+                        <div>15 GB</div>
+                    </div>
+                    <div class="col text-left" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        <div>Whatsapp</div>
+                        <div>Redes sociales</div>
+                        <div>Para navegar</div>
+                        <div>Regalo primer mes</div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="h3 text-center">$16.00/mes</div>
+
+                <div class="mt-3">
+                    <button style="width: 100% " class="btn btn-danger color-light">Lo quiero</button>
+                </div>
+            </div>
+        </div>
+
+        {{!-- TARJETA 3 --}}
+        <div class="col offset-1 card p-3">
+            <div class="card-body">
+                <div class="h1 m-0  mb-3 text-center text-success">40GB</div>
+                <hr class="m-0 ">
+                <div class="text-center my-3">Recibe</div>
+                <div class="row">
+                    <div class="col h-6 text-center">
+                        <div>5 GB</div>
+                        <div>4 GB</div>
+                        <div>8 GB</div>
+                        <div>15 GB</div>
+                    </div>
+                    <div class="col text-left" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        <div>Whatsapp</div>
+                        <div>Redes sociales</div>
+                        <div>Para navegar</div>
+                        <div>Regalo primer mes</div>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="h3 text-center">$20.00/mes</div>
+
+                <div class="mt-3">
+                    <button style="width: 100% " class="btn btn-success color-light">Lo quiero</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 

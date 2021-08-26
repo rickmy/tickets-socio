@@ -1,37 +1,99 @@
 body {
-    background: #f5f6f5;
-    font-family: 'Oswald' , sans-serif ; /* Lo que dice aqui es utilza 'Oswald' caso contrario  utiliza sans-serif */
-    overflow: hidden;
+  background: #f5f6f5;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
 }
 
+h6,
+h3,
+p {
+  margin: 0;
+}
 
 .index {
-    /* Y asi es como por fin aprendi a que una caja ocupe todo el ancho y largo de un dispositivo si tener que jacer malabares */
-    width: 100vw; 
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 .masthead {
-    color:  white;
-    min-height: 30rem;
-    width: 100%;
-    height: 100%;
-    /* padding-top: 8rem; */
-    background-image: url('/img/background.jpeg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  color: white;
+
+  min-height: 30rem;
+  width: 100%;
+  height: 100%;
+  /* padding-top: 8rem; */
+  background-image: url('../img/main/background-main.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .masthead h1 {
-    font-size: 4rem;
-    margin: 0;
-    padding: 0;
-    font-weight: 600;
+  color: #012e40;
+  letter-spacing: 8px;
+  display: block;
+  margin: 0 0 25px 0;
+  padding: 0;
+  line-height: 75px;
 }
 
-@media ( min-width : 992px ){
-    .masthead h1 {
-        font-size: 5.5rem;
-    }
+.masthead p {
+  font-size: 20px;
+  color: #222222;
+  text-align: center;
+  line-height: 22px;
+  padding: 0 3rem;
+  margin-bottom: 10px;
+}
+
+.masthead .row {
+  margin-top: -150px;
+}
+
+.content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.precioBox {
+  background-color: #f08061;
+  padding: 10px 20px;
+  border-radius: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.buttonsBox {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 30px;
+}
+
+.buttonsBox a {
+  padding: 10px 25px;
+  border-radius: 10px;
+  margin: 0 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.buttonsBox .btn1 {
+  background-color: #045474;
+  color: white;
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.buttonsBox .btn2 {
+  border: 2px solid white;
+}
+
+@media (min-width: 992px) {
+  .masthead h1 {
+    font-size: 5.5rem;
+  }
 }

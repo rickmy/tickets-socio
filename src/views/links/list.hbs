@@ -1,31 +1,30 @@
 <div class="container p-4">
     <div class="row">
         {{#each links}}
-            {{!-- {{ this }  this nos sirve para mostrar todo el contenido de links (si lo quieres provar no olvides escribirlo bien asi -> {{ this }}) --}}
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <a href="{{ url }}" target="_blank" >
-                            <h3 class="card-title text-uppercase"  >
-                                 {{ title }}
-                            </h3>
-                        </a>
-                        <p class="m-2">{{ description }}</p>
-                        <p>{{ timeago created_at }}</p>
-                        <a href="/links/delete/{{id}}" class="btn btn-danger" >Delete Lik</a>
-                        <a href="/links/edit/{{id}}" class="btn btn-secondary" >Edit</a>
-                    </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <a href="{{ url }}" target="_blank">
+                        <h3 class="card-title text-uppercase">
+                            {{ title }}
+                        </h3>
+                    </a>
+                    <p class="m-2">{{ description }}</p>
+                    <p>{{ timeago created_at }}</p>
+                    <a href="/links/delete/{{id}}" class="btn btn-danger">Delete Lik</a>
+                    <a href="/links/edit/{{id}}" class="btn btn-secondary">Edit</a>
                 </div>
             </div>
-            {{else}}
-            <div class="col-md-4 mx-auto">
-                <div class="card card-body text">
-                    <div class="card card-body text-center">
-                        <p>No hay link guardado aun</p>
-                        <a href="/links/add">Crear links</a>
-                    </div>
+        </div>
+        {{else}}
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text">
+                <div class="card card-body text-center">
+                    <p>No tienes ningun plan contratado.</p>
+                    <a class="text-primary" href="/links/add">Contratar plan</a>
                 </div>
             </div>
+        </div>
         {{/each}}
 
     </div>
