@@ -9,24 +9,45 @@
         height: 100%;
     }
 
-    .height-100 {}
+
 
     P {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: center;
     }
+
+    .align-left p {
+        text-align: left;
+    }
+
+    .align-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+
+    .f-s-30 {
+        font-size: 30px;
+    }
 </style>
 
 
 <div class="container p-4">
-    <div class="row">
-        <div class="col ">
-            <div class="card-body">Perfil</div>
+
+
+    <div class="row justify-content-center">
+        <div class="col-4  margin-rigth">
+            <div class="card-body f-s-30">Perfil</div>
+        </div>
+
+        <div class="col-7 align-right">
+            <a href="#" class="btn btn-primary">Editar informacion</a>
         </div>
     </div>
 
     <div class="row justify-content-center ">
-        <div class="col-4 card margin-rigth height-100 py-5">
+        <div class="col-4 card margin-rigth py-5">
 
             <div class="card-body center-img">
                 <img class="card-img m-0"
@@ -35,15 +56,42 @@
                     alt="">
             </div>
 
-            <div class="h5 text-center">Hnery Hurtado</div>
+            <div class="h5 text-center">{{ userInfo.nombre }}</div>
             <div>
-                <p>Fecha registro: 15-02-2021</p>
+                <p>{{ user.fecha_registro }}</p>
             </div>
 
         </div>
 
-        <div class="col-7 card">
-            <div>Info</div>
+        <div class="col-7 card p-3">
+
+            <div class="card-body">
+                <div class="align-left">
+                    <p>Nombres</p>
+                    <p class="text-secondary text-left">{{ userInfo.nombre }}</p>
+                </div>
+
+                <hr>
+
+                <div class="align-left">
+                    <p>Cedula</p>
+                    <p class="text-secondary text-left">{{ userInfo.id_cedula }}</p>
+                </div>
+
+                <hr>
+
+                <div class="align-left">
+                    <p>Direccion</p>
+                    <p class="text-secondary text-left">{{ userInfo.direccion }}</p>
+                </div>
+
+                <hr>
+
+                <div class="align-left">
+                    <p>Telefono</p>
+                    <p class="text-secondary text-left">{{ userInfo.telefono }}</p>
+                </div>
+            </div>
         </div>
 
 

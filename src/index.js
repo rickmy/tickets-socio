@@ -3,7 +3,6 @@ const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const flash = require('connect-flash');
-const MySQLStore = require('express-mysql-session'); //Esto sirve para definir en que lugar voy a guardar las sesiones. Es necesario en storage de la session
 const { database } = require('./keys');
 const passport = require('passport');
 const session = require('express-session');
@@ -13,7 +12,7 @@ const app = express();
 require('./lib/passport');
 
 // Setings  (las configuraciones del servidor)
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 8080);
 
 app.set('views', path.join(__dirname, 'views')); //Aqui le indico donde estan los views
 
@@ -33,10 +32,10 @@ app.set('view engine', '.hbs');
 // Middlewares
 app.use(
   session({
-    secret: 'fazrmysqlnodesession',
+    secret: 'root',
     resave: false,
     saveUninitialized: false,
-    store: new MySQLStore(database), //gracias a esto las sessiones seran almacenadas en la base de datos
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 },
   })
 );
 app.use(flash());
