@@ -6,7 +6,6 @@
     .center-img {
         display: flex;
         justify-content: center;
-        height: 100%;
     }
 
 
@@ -38,32 +37,33 @@
 
     <div class="row justify-content-center">
         <div class="col-4  margin-rigth">
-            <div class="card-body f-s-30">Perfil</div>
+            <div class="card-body f-s-30">Perfil - <span class="text-primary">{{ userRol.nombre}}</span></div>
         </div>
 
         <div class="col-7 align-right">
-            <a href="#" class="btn btn-primary">Editar informacion</a>
+            <a href="/profile/edit" class="btn btn-primary">Editar informacion</a>
         </div>
     </div>
 
-    <div class="row justify-content-center ">
-        <div class="col-4 card margin-rigth py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-sm-12 card margin-rigth py-5 ">
 
-            <div class="card-body center-img">
-                <img class="card-img m-0"
-                    style="max-width: 200px; width: 200px; max-height: 200px; height: 200px; border-radius:50%; "
+            <div class="center-img">
+                <img class="card-img card-img-top" style="border-radius: 50%; width: 200px ; height: 200px;"
                     src="https://lamenteesmaravillosa.com/wp-content/uploads/2018/09/hombre-creido-pensando-que-sabe.jpg"
                     alt="">
             </div>
 
-            <div class="h5 text-center">{{ userInfo.nombre }}</div>
-            <div>
-                <p>{{ user.fecha_registro }}</p>
+            <div class="card-body">
+                <div class="h5 text-center">{{ userInfo.nombre }}</div>
+                <div>
+                    <p>{{ user.fecha_registro }}</p>
+                </div>
             </div>
 
         </div>
 
-        <div class="col-7 card p-3">
+        <div class="col-lg-7 col-sm-12 card p-3">
 
             <div class="card-body">
                 <div class="align-left">
@@ -74,8 +74,22 @@
                 <hr>
 
                 <div class="align-left">
+                    <p>Email</p>
+                    <p class="text-secondary text-left">{{ userInfo.email }}</p>
+                </div>
+
+                <hr>
+
+                <div class="align-left">
                     <p>Cedula</p>
                     <p class="text-secondary text-left">{{ userInfo.id_cedula }}</p>
+                </div>
+
+                <hr>
+
+                <div class="align-left">
+                    <p>Password</p>
+                    <p class="text-secondary text-left">•••••••••••</p>
                 </div>
 
                 <hr>

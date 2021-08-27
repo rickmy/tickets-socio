@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const { getRol } = require('../helpers/getRol');
 const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 
 router.get('/signup', isNotLoggedIn, (req, res) => {
@@ -20,13 +21,17 @@ router.get('/logout', (req, res) => {
   res.redirect('/signin');
 });
 
-router.get('/profile', isLoggedIn, (req, res) => {
-  // console.log(req.user, 'Esta es');
-
+router.get('/profile', isLoggedIn, async (req, res) => {
   const userInfo = req.user;
-  console.log(userInfo);
+  let userRol = '';
 
-  res.render('profile', { userInfo });
+  if (userInfo.fk_rol != 5) {
+    userRol = await getRol('users_colaborador', userInfo.id_cedula);
+  } else {
+    userRol = await getRol('users_cliente', userInfo.id_cedula);
+  }
+
+  res.render('profile', { userInfo, userRol });
 });
 
 router.post('/signin', (req, res, next) => {

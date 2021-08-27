@@ -56,7 +56,7 @@ app.use((req, res, next) => {
 // Rutas
 app.use(require('./routes/index.js'));
 app.use(require('./routes/authentication'));
-app.use('/links', require('./routes/links')); // => El "/link" lo que ara esque todas las rutas que creemos en este archivoo llamado links esque tenamos que primero poner "/link" . En este caso creamos una ruta llamda "/add" pero como pusimos aqui "/link" entonces  debemos primero escribir "/link" y luego si "/add" asi => "/link/add"
+app.use(require('./routes/links')); // => El "/link" lo que ara esque todas las rutas que creemos en este archivoo llamado links esque tenamos que primero poner "/link" . En este caso creamos una ruta llamda "/add" pero como pusimos aqui "/link" entonces  debemos primero escribir "/link" y luego si "/add" asi => "/link/add"
 
 //Archivos publicos
 app.use(express.static(path.join(__dirname, 'public')));
