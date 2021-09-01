@@ -11,26 +11,25 @@
                     <img src="/img/logo.png" class="card-img-top mx-auto m-2 rounded-circle w-50 mb-4" alt="logo">
                     <form action="/signup-cola" method="POST">
                         <div class="form-group mt-2">
-                            <input type="text" name="nombres" placeholder="Nombres" class="form-control" autofocus
-                                autocomplete="off">
+                            <input type="text" name="nombres" value="{{valuesForm.nombres}}" placeholder="Nombres"
+                                class="form-control" autofocus autocomplete="off">
                         </div>
                         <div class="form-group mt-2">
-                            <input type="text" name="username" placeholder="Cedula" class="form-control"
-                                autocomplete="off">
+                            <input type="text" name="username" value="{{valuesForm.username}}" placeholder="Cedula"
+                                class="form-control" autocomplete="off">
                         </div>
                         <div class="form-group mt-2">
-                            <input type="text" name="direccion" placeholder="Direccion" class="form-control"
-                                autocomplete="off">
+                            <input type="text" name="direccion" value="{{valuesForm.direccion}}" placeholder="Direccion"
+                                class="form-control" autocomplete="off">
+                        </div>
+                        <div class="form-group mt-2">
+                            <input type="text" name="telefono" value="{{valuesForm.telefono}}" placeholder="Telefono"
+                                class="form-control" autocomplete="off">
                         </div>
 
                         <div class="form-group mt-2">
-                            <input type="text" name="telefono" placeholder="Telefono" class="form-control"
-                                autocomplete="off">
-                        </div>
-
-                        <div class="form-group mt-2">
-                            <input type="email" name="email" placeholder="Email" class="form-control"
-                                autocomplete="off">
+                            <input type="email" name="email" value="{{valuesForm.email}}" placeholder="Email"
+                                class="form-control" autocomplete="off">
                         </div>
 
                         <div class="form-group mt-2">
@@ -53,6 +52,7 @@
                         </div>
 
                         <div class="form-group mt-2">
+                            {{> message }}
                             <button class="btn btn-block mt-3 btn-success" style=" color:white">
                                 Registrarse
                             </button>

@@ -1,0 +1,94 @@
+<style>
+    .t-light {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    input::placeholder {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+
+    .centerForgot {
+        display: flex;
+        margin-top: 80px;
+        justify-content: center
+    }
+
+    .align-rigth {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+    a {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 500 !important;
+        margin-right: 12px;
+    }
+
+
+    button {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 500 !important;
+        margin-right: 12px;
+    }
+
+    .success {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 200px;
+    }
+
+    .success a {
+        margin-top: 20px;
+        width: 200px;
+    }
+</style>
+
+
+<div class="container centerForgot">
+    <form method="POST">
+        <div class="card" style="width: 32rem;">
+
+
+            {{#if password}}
+
+            <div class="success">
+
+                <li class="text-center">Se a actualizado tu password correctamente &nbsp•</li>
+
+                <a class="btn btn-primary" href="/signin">Login</a>
+            </div>
+
+            {{else}}
+            <ul class="list-group list-group-flush py-2">
+                <li class="list-group-item">Recupera tu cuenta</li>
+
+                <ul class="list-group list-group-flush p-3">
+
+                    <p class="card-text t-light mb-3">Ingresa tu nueva contraseña</p>
+
+                    {{> message}}
+
+                    <div class="">
+                        <input type="password" class="form-control mb-2" name="password" id="exampleInputEmail1"
+                            placeholder="Nuevo password" aria-describedby="emailHelp">
+
+                        <input type="password" class="form-control" name="password_conf" id="exampleInputEmail1"
+                            placeholder="Repetir password" aria-describedby="emailHelp">
+                    </div>
+                </ul>
+                <ul class="list-group list-group-flush p-1">
+                    <div class="align-rigth">
+                        <a class="btn btn-secondary" href="signin">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                    </div>
+                </ul>
+            </ul>
+            {{/if}}
+
+        </div>
+    </form>
+</div>

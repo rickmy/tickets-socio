@@ -4,6 +4,7 @@ const pool = require('../database');
 const helpers = require('../lib/helpers');
 const { getDate } = require('../helpers/getTime');
 const { getUser } = require('../helpers/loginQuery');
+const { userExist } = require('../helpers/userExist');
 
 passport.use(
   'local.signin',
@@ -15,8 +16,6 @@ passport.use(
     },
     async (req, cedula, password, done) => {
       try {
-        // let table = 'users_cliente';
-
         let rows = [];
 
         const cliente = await getUser('users_cliente', cedula);
@@ -33,9 +32,10 @@ passport.use(
 
         if (rows.length > 0) {
           const user = rows[0];
+
           const validPassword = await helpers.matchPassword(password, user.password);
           if (validPassword) {
-            done(null, user, req.flash('success', 'Welcome', user.username));
+            done(null, user, req.flash('success', 'Welcome', user.nombre));
           } else {
             done(null, false, req.flash('message', 'Contraseña incorrecta'));
           }
@@ -58,12 +58,11 @@ passport.use(
       passReqToCallback: true,
     },
     async (req, username, password, done) => {
+      if (await userExist(username)) {
+        return done(null, false, req.flash('message', 'El numero de cedula ya existe.'));
+      }
+
       const { nombres, direccion, telefono, email, password_conf } = req.body;
-
-      /* 
-      TODO: Antes de guardar los datos aqui tienes la tarea de validarlos, puede hacerlo creando un un helper.
-      */
-
       const fecha_registro = getDate();
       const fk_rol = 5;
 
@@ -86,7 +85,7 @@ passport.use(
         const result = await pool.query(text, values);
         return done(null, result.rows[0]);
       } catch (error) {
-        console.log(error);
+        return done(null, false, req.flash('message', 'Error de conexion, intenta mas tarde'));
       }
     }
   )
@@ -101,6 +100,9 @@ passport.use(
       passReqToCallback: true,
     },
     async (req, username, password, done) => {
+      if (await userExist(username)) {
+        return done(null, false, req.flash('message', 'El numero de cedula ya existe.'));
+      }
       const { nombres, direccion, telefono, roles, email, password_conf } = req.body;
 
       const fecha_registro = getDate();
