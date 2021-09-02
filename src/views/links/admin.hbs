@@ -1,0 +1,60 @@
+{{> message}}
+<div class="container">
+    {{#if users}}
+    <table class="table table-success text-center mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Cedula</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+            <tr style="font-weidth: 100px;">
+                <td>{{ id_cedula }}</td>
+                <td>{{ nombre }}</td>
+                <td>{{ telefono }}</td>
+                <td>{{ direccion }}</td>
+                <td>
+                    <a href="admin/delete/{{id_cedula}}/{{fk_rol}}" class="btn btn-danger">Desactivar</a>
+                </td>
+            </tr>
+            {{/each }}
+
+        </tbody>
+    </table>
+    {{/if}}
+
+    {{#if usersInactive}}
+    <table class="table table-danger text-center mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Cedula</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each usersInactive}}
+            <tr style="font-weidth: 100px;">
+                <td>{{ id_cedula }}</td>
+                <td>{{ nombre }}</td>
+                <td>{{ telefono }}</td>
+                <td>{{ direccion }}</td>
+                <td>
+                    <a href="admin/activate/{{id_cedula}}/{{fk_rol}}" class="btn btn-success">Activar</a>
+                </td>
+            </tr>
+            {{/each }}
+
+        </tbody>
+    </table>
+    {{/if}}
+
+
+</div>

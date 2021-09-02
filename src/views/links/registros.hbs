@@ -1,0 +1,34 @@
+<style>
+    body {
+        overflow: auto;
+    }
+</style>
+
+<div class="container overflow">
+
+    <table class="table text-center table-success mt-4">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">User id</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Actividad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each registros}}
+            <tr>
+                <th scope="row">{{id_registro}}</th>
+                <td>{{ fk_users_cliente }}</td>
+                <td>{{ fecha }}</td>
+                <td>{{ actividad }}</td>
+            </tr>
+
+            {{/each }}
+
+        </tbody>
+    </table>
+
+
+
+</div>

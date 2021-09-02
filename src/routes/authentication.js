@@ -5,9 +5,10 @@ const { getRol } = require('../helpers/getRol');
 const { isLoggedIn, isNotLoggedIn } = require('../lib/auth');
 const sendEmail = require('../helpers/sendEmail');
 const { getUserByEmail } = require('../helpers/getUserByEmail');
-
 const { updatePassword } = require('../helpers/updatePassword');
-
+const { crearRegistro } = require('../helpers/loginQuery');
+const { getAllUsers, getAllUsersInactive } = require('../helpers/getAllUsers');
+const { deleteUser } = require('../helpers/deleteUser');
 const {
   nameValidate,
   cedulaValidate,
@@ -30,6 +31,7 @@ router.get('/signin', isNotLoggedIn, (req, res) => {
 });
 
 router.get('/logout', (req, res) => {
+  crearRegistro(req.user.id_cedula, 'Logout');
   req.logOut(); //esto es lo que hace que se cierra la sesion del usuario.
   res.redirect('/signin');
 });
@@ -55,6 +57,47 @@ router.get('/signin/restore/:id', isNotLoggedIn, (req, res) => {
   const { id } = req.params;
 
   res.render('auth/restore');
+});
+
+router.get('/admin', isLoggedIn, async (req, res) => {
+  const users = await getAllUsers();
+  const usersInactive = await getAllUsersInactive();
+
+  res.render('links/admin', { users, usersInactive });
+});
+
+router.get('/admin/delete/:id/:rol', async (req, res) => {
+  const { id: cedula, rol } = req.params;
+
+  let table = '';
+
+  if (rol != 5) {
+    table = 'users_colaborador';
+  } else {
+    table = 'users_cliente';
+  }
+
+  deleteUser(table, cedula, false);
+
+  req.flash('message', 'Usuario desactivado');
+  res.redirect('/admin');
+});
+
+router.get('/admin/activate/:id/:rol', async (req, res) => {
+  const { id: cedula, rol } = req.params;
+
+  let table = '';
+
+  if (rol != 5) {
+    table = 'users_colaborador';
+  } else {
+    table = 'users_cliente';
+  }
+
+  deleteUser(table, cedula, true);
+
+  req.flash('message', 'Usuario activado');
+  res.redirect('/admin');
 });
 
 router.post('/signin/restore/:id', isNotLoggedIn, (req, res) => {

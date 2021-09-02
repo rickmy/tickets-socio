@@ -5,6 +5,7 @@ const planActual = document.getElementById('planActual');
 const perfil = document.getElementById('perfil');
 const planes = document.getElementById('planes');
 const login = document.getElementById('login');
+const admin = document.getElementById('admin');
 
 switch (pathname) {
   case '/links':
@@ -25,6 +26,14 @@ switch (pathname) {
 
   case '/signup':
     registrarse.classList.add('active');
+    break;
+
+  case '/registros':
+    registrarse.classList.add('active');
+    break;
+
+  case '/admin':
+    admin.classList.add('active');
     break;
 
   default:

@@ -15,18 +15,31 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           {{#if user}}
+
+          {{#if (colab user.fk_rol) }}
           <li class="nav-item">
-            <a class="nav-link" id="planActual" aria-current="page" href="/links/add">Plan actual</a>
+            <a class="nav-link" id="salir" href="/registros">Registros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="planes" href="/links/add">Planes</a>
+            <a class="nav-link" id="admin" href="/admin">Usuarios</a>
           </li>
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link" id="planActual" aria-current="page" href="/list">Plan actual</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="planes" href="/add">Planes</a>
+          </li>
+          {{/if }}
+
           <li class="nav-item">
             <a class="nav-link" id="perfil" href="/profile">Perfil</a>
           </li>
+
           <li class="nav-item">
             <a class="nav-link" id="salir" href="/logout">Salir</a>
           </li>
+
           {{else}}
           <li class="nav-item">
             <b>
@@ -37,6 +50,9 @@
             <a class="nav-link" id="registrarse" href="/signup">Registrase</a>
           </li>
           {{/if}}
+
+
+
         </ul>
       </div>
     </div>

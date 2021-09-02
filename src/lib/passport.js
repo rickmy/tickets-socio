@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const pool = require('../database');
 const helpers = require('../lib/helpers');
 const { getDate } = require('../helpers/getTime');
-const { getUser } = require('../helpers/loginQuery');
+const { getUser, crearRegistro } = require('../helpers/loginQuery');
 const { userExist } = require('../helpers/userExist');
 
 passport.use(
@@ -31,10 +31,15 @@ passport.use(
         }
 
         if (rows.length > 0) {
+          if (rows[0].estado == false) {
+            return done(null, false, req.flash('message', 'El usuario  no existe'));
+          }
+
           const user = rows[0];
 
           const validPassword = await helpers.matchPassword(password, user.password);
           if (validPassword) {
+            crearRegistro(user.id_cedula, 'Login');
             done(null, user, req.flash('success', 'Welcome', user.nombre));
           } else {
             done(null, false, req.flash('message', 'Contraseña incorrecta'));
@@ -62,7 +67,7 @@ passport.use(
         return done(null, false, req.flash('message', 'El numero de cedula ya existe.'));
       }
 
-      const { nombres, direccion, telefono, email, password_conf } = req.body;
+      const { nombres, direccion, telefono, email } = req.body;
       const fecha_registro = getDate();
       const fk_rol = 5;
 
@@ -70,7 +75,7 @@ passport.use(
 
       try {
         const text =
-          'INSERT INTO users_cliente( id_cedula, nombre, direccion, password, telefono, fecha_registro, fk_rol, email ) values( $1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING id_cedula, nombre, direccion, password, telefono, fecha_registro, fk_rol, email';
+          'INSERT INTO users_cliente( id_cedula, nombre, direccion, password, telefono, fecha_registro, fk_rol, email, estado ) values( $1, $2, $3, $4, $5, $6, $7, $8, $9 ) RETURNING id_cedula, nombre, direccion, password, telefono, fecha_registro, fk_rol, email, estado';
         const values = [
           username,
           nombres,
@@ -80,11 +85,20 @@ passport.use(
           fecha_registro,
           fk_rol,
           email,
+          true,
         ];
 
         const result = await pool.query(text, values);
-        return done(null, result.rows[0]);
+
+        crearRegistro(result.rows[0].id_cedula, 'Registro');
+
+        return done(
+          null,
+          result.rows[0],
+          req.flash('success', `Bienvenido ${result.rows[0].nombre}`)
+        );
       } catch (error) {
+        console.log(error);
         return done(null, false, req.flash('message', 'Error de conexion, intenta mas tarde'));
       }
     }
@@ -111,7 +125,7 @@ passport.use(
 
       try {
         const text =
-          'INSERT INTO users_colaborador( id_cedula, nombre, direccion, password, telefono, fecha_registro, fk_rol, email ) values( $1, $2, $3, $4, $5, $6, $7, $8 ) RETURNING id_cedula, nombre, direccion, password, telefono, fecha_registro, fk_rol, email';
+          'INSERT INTO users_colaborador( id_cedula, nombre, direccion, password, telefono, fecha_registro, fk_rol, email, estado ) values( $1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id_cedula, nombre, direccion, password, telefono, fecha_registro, fk_rol, email, estado';
         const values = [
           username,
           nombres,
@@ -121,10 +135,16 @@ passport.use(
           fecha_registro,
           roles,
           email,
+          true,
         ];
 
         const result = await pool.query(text, values);
-        return done(null, result.rows[0]);
+        crearRegistro(result.rows[0].id_cedula, 'Registro colaborador');
+        return done(
+          null,
+          result.rows[0],
+          req.flash('success', `Bienvenido ${result.rows[0].nombre}`)
+        );
       } catch (error) {
         console.log(error);
         console.log('Error: Archivo passport.js');
