@@ -18,7 +18,6 @@ module.exports = function (user) {
           <h2 style="color: #012E40; margin-top:90px;">Actualizar password</h2>
           <h3 style="color: #012E40; margin-bottom: 25px ;">Si deseas actualizar tu contraseña ve hacia el enlace, de lo contrario, ignoralo</h3>
           <a href="http://localhost:3000/signin/restore/${user.cedula}" style="margin-top:50px; background-color:#012E40; padding:10px 15px; color:white; border-radius:15px">Actualizar</a>
-      
       </div>
     </div>
   `,

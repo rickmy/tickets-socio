@@ -4,14 +4,14 @@
 
 - Node
 - NPM
-- mySQL
+- PostgreSQL
 
 ## Pasos para ejecutar la app.
 
 - Abra la app desde la linea de comandos.
 - Installe los modulos -> npm install
 - Ejecuta la app -> npm run dev
-- Desde el navegador dirijase a esta ruta -> http://localhost:4000/links
+- Desde el navegador dirijase a esta ruta -> http://localhost:3000
 
 # Users ( Rols )
 
