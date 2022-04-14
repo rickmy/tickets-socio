@@ -18,15 +18,15 @@ const {
   passwordValidate,
 } = require('../helpers/validationForm');
 
-router.get('/signup', isNotLoggedIn, (req, res) => {
+router.get('/signup', (req, res) => {
   res.render('auth/signup');
 });
 
-router.get('/signup-cola', isNotLoggedIn, (req, res) => {
+router.get('/signup-cola', (req, res) => {
   res.render('auth/signup-cool');
 });
 
-router.get('/signin', isNotLoggedIn, (req, res) => {
+router.get('/signin', (req, res) => {
   res.render('auth/signin');
 });
 
@@ -36,7 +36,7 @@ router.get('/logout', (req, res) => {
   res.redirect('/signin');
 });
 
-router.get('/profile', isLoggedIn, async (req, res) => {
+router.get('/profile', async (req, res) => {
   const userInfo = req.user;
   let userRol = '';
 
@@ -49,11 +49,11 @@ router.get('/profile', isLoggedIn, async (req, res) => {
   res.render('profile', { userInfo, userRol });
 });
 
-router.get('/signin/forgot', isNotLoggedIn, (req, res) => {
+router.get('/signin/forgot', (req, res) => {
   res.render('auth/forgot');
 });
 
-router.get('/signin/restore/:id', isNotLoggedIn, (req, res) => {
+router.get('/signin/restore/:id', (req, res) => {
   const { id } = req.params;
 
   res.render('auth/restore');

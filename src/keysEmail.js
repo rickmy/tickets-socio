@@ -1,6 +1,6 @@
 const keyEmail = {
-  user: 'jaa.alava@yavirac.edu.ec',
-  pass: 'Nomeacuerdo98',
+  user: '',
+  pass: '',
 };
 
 module.exports = { keyEmail };

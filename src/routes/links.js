@@ -4,15 +4,15 @@ const { isLoggedIn } = require('../lib/auth');
 const { updateUser } = require('../helpers/loginQuery');
 const pool = require('../database');
 
-router.get('/list', isLoggedIn, (req, res) => {
+router.get('/list', (req, res) => {
   res.render('links/list');
 });
 
-router.get('/add', isLoggedIn, async (req, res) => {
+router.get('/add', async (req, res) => {
   res.render('links/add');
 });
 
-router.get('/registros', isLoggedIn, async (req, res) => {
+router.get('/registros', async (req, res) => {
   const text = 'select * from registros';
   const data = await pool.query(text);
   const registros = data.rows;
@@ -23,7 +23,7 @@ router.post('/add', async (req, res) => {
   res.redirect('/links');
 });
 
-router.get('/profile/edit', isLoggedIn, async (req, res) => {
+router.get('/profile/edit', async (req, res) => {
   const user = req.user;
   res.render('links/edit', { user });
 });
