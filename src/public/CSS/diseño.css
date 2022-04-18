@@ -1,0 +1,41 @@
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  margin: 0;
+}
+
+.child-nav-container {
+  display: flex;
+  padding: 20px 0;
+  /* background-color: aqua; */
+  width: 70%;
+  justify-content: space-between;
+}
+
+.child-nav-container > div {
+  display: flex;
+}
+
+.container-1 > div,
+.container-2 > div,
+.container-3 > div {
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.child-nav-container a {
+  text-decoration: none;
+  margin: 0;
+  color: #1a1a1a;
+  font-weight: 400;
+}
+
+.child-nav-container a:hover {
+  color: #222222;
+  font-weight: 500;
+}
