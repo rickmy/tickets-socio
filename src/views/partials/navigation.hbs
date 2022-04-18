@@ -1,59 +1,141 @@
-<div class="container">
+<div id="general">
+        <table align="center">
+            <div id="enruta">
+                EN RUTA
+            </div>
+            <div1>Estado</div1>
+            <h3 align="right">11/04/2022</h3>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
+            <caption>CONDUCTORES</caption>
 
-        <img src="/img/logo.png" width="75" alt="./img/logo.png">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          {{#if user}}
-
-          {{#if (colab user.fk_rol) }}
-          <li class="nav-item">
-            <a class="nav-link" id="salir" href="/registros">Registros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="admin" href="/admin">Usuarios</a>
-          </li>
-          {{else}}
-          <li class="nav-item">
-            <a class="nav-link" id="planActual" aria-current="page" href="/list">Plan actual</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="planes" href="/add">Planes</a>
-          </li>
-          {{/if }}
-
-          <li class="nav-item">
-            <a class="nav-link" id="perfil" href="/profile">Perfil</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" id="salir" href="/logout">Salir</a>
-          </li>
-
-          {{else}}
-          <li class="nav-item">
-            <b>
-              <a class="nav-link" id="login" href="/signin">Login</a>
-            </b>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="registrarse" href="/signup">Registrase</a>
-          </li>
-          {{/if}}
+            <tr>
+                <th>Activo</th>
+                <th>Nombres</th>
+                <th>Cedula</th>
+                <th>Contacto</th>
+                <th>Unidad</th>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>Jefferson Alava </td>
+                <td>1725732908</td>
+                <td>0987318452</td>
+                <td>37</td>
 
 
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>Jefferson Alava </td>
+                <td>1725732908</td>
+                <td>0987318452</td>
+                <td>37</td>
 
-        </ul>
-      </div>
+
+            </tr>
+
+
+        </table>
+
+
+        <table align="center">
+            <br>
+            <caption>HORARIOS</caption>
+
+            <tr>
+                <th>Salida</th>
+                <th>Llegada</th>
+                <th>Ruta</th>
+                <th>Fecha</th>
+            </tr>
+            <tr>
+                <td>10.00 AM</td>
+                <td>12.30 PM </td>
+                <td>Quito - Otavalo</td>
+                <td>11/04/2022</td>
+
+
+            </tr>
+            <tr>
+                <td>2.00 PM</td>
+                <td>4.30 PM </td>
+                <td>Otavalo - Quito</td>
+                <td>11/04/2022</td>
+
+            </tr>
+
+        </table>
+
+        <table align="center">
+            <br>
+            <caption>ENCOMIENDAS</caption>
+
+            <tr>
+                <th>ID</th>
+                <th>Nombres</th>
+                <th>Cantidad</th>
+                <th>Peso</th>
+                <th>Precio Total</th>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>Ponchos </td>
+                <td>4</td>
+                <td>2kg</td>
+                <td>$10</td>
+
+
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>Sombreros</td>
+                <td>15</td>
+                <td>2kg</td>
+                <td>$18</td>
+
+            </tr>
+            <tr>
+                <td colspan="4">Total</td>
+                <th>$28</th>
+
+            </tr>
+
+
+        </table>
+
+        <table align="center">
+            <br>
+            <caption>RESERVAS</caption>
+
+            <tr>
+                <th>Tipo</th>
+                <th>Cantidad</th>
+                <th>Valor individual</th>
+                <th>Valor Total</th>
+            </tr>
+            <tr>
+                <td>Adultos</td>
+                <td>10</td>
+                <td>$5</td>
+                <td>$50</td>
+
+
+            </tr>
+            <tr>
+                <td>Preferencial</td>
+                <td>15</td>
+                <td>$2,50</td>
+                <td>$37,50</td>
+
+            </tr>
+            <tr>
+                <td colspan="3">Total</td>
+                <th>$87.50</th>
+
+            </tr>
+
+
+        </table>
+
     </div>
-  </nav>
-</div>
