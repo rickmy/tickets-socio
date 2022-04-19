@@ -12,4 +12,8 @@ router.get('/detalle', (req, res) => {
   res.render('socio/detalle');
 });
 
+router.get('/bus-coop', (req, res) => {
+  res.render('socio/bus-coop');
+});
+
 module.exports = router;
