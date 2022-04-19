@@ -1,36 +1,27 @@
-#general {
-    margin: auto;
-    width: 850px;
-    height: 700px;
-    float: right;
-}
-
 table,
 th,
 td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    width: 50%;
-
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 50%;
 }
 
 th,
 td {
-    padding: 5px;
-    text-align: center;
-    height: auto;
-    width: auto;
-
+  padding: 5px;
+  text-align: center;
+  height: auto;
+  width: auto;
 }
 
 th {
-    background-color: #c6c6c6;
+  background-color: #c6c6c6;
 }
 
 #enruta {
-    width: 80px;
-    height: 15px;
-    border-radius: 22px;
-    background-color: #e3f11c;
-    padding: 9px;
+  width: 80px;
+  height: 15px;
+  border-radius: 22px;
+  background-color: #e3f11c;
+  padding: 9px;
 }
