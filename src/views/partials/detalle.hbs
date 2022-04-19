@@ -8,7 +8,6 @@
             <button class="boton"><span>HOY</span></button>
         </div>
 
-
         <thead>
             <tr>
                 <th>FECHA</th>
@@ -19,23 +18,31 @@
                 <th>ENCOMIENDAS</th>
             </tr>
         </thead>
+
         <tbody>
+            {{#each datos}}
             <tr>
-                <td data-label="FECHA">22/04/2022</td>
-                <td data-label="HORA SALIDA">09:00</td>
-                <td data-label="HORA LLEGADA">17:00</td>
-                <td data-label="RUTA">T.Carcelen(Quito)/T.Guayaquil(Guayaquil)</td>
-                <td data-label="ASIENTOS">45</td>
-                <td data-label="ENCOMIENDAS">10</td>
+                <td data-label="FECHA">
+                    {{ fecha }}
+                </td>
+                <td data-label="HORA SALIDA">
+                    {{ hora_salida }}
+                </td>
+                <td data-label="HORA LLEGADA">
+                    {{ hora_llegada }}
+                </td>
+                <td data-label="RUTA">
+                    {{ ruta }}
+                </td>
+                <td data-label="ASIENTOS">
+                    {{ asientos }}
+                </td>
+                <td data-label="ENCOMIENDAS">
+                    {{ encomiendas }}
+                </td>
             </tr>
-            <tr>
-                <td data-label="FECHA">23/04/2022</td>
-                <td data-label="HORA SALIDA">10:00</td>
-                <td data-label="HORA LLEGADA">18:00</td>
-                <td data-label="RUTA">T.Carcelen(Quito)/T.Guayaquil(Guayaquil)</td>
-                <td data-label="ASIENTOS">50</td>
-                <td data-label="ENCOMIENDAS">20</td>
-            </tr>
+            {{/each}}
         </tbody>
+
     </table>
 </div>
