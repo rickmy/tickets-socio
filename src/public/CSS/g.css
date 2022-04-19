@@ -1,0 +1,54 @@
+* {
+    border-radius: 5px;
+    
+}
+
+.container{
+    height: 100px; width: 350px;
+}
+
+#bus{
+    display: flex;
+    margin-left: 6%; margin-bottom: 2%;
+}
+
+.asientos{
+    display: flex;
+    justify-content: space-around;
+}
+
+#ocupados{
+    width: 15px; height: 15px;
+    background-color: #ff3636;
+    border: unset;    
+    border-radius: 30px;
+}
+
+#libres{
+    width: 15px; height: 15px;
+    background-color: #fdfbfb;
+    border-color: #3e3e3f;
+    border-radius: 30px;
+}
+
+#ocupadoss, #libress{
+    width: 30px; height: 19px;
+    color: aliceblue;
+    background-color: #3e3e3f;
+}
+.datos{
+    height: 100px; width: 350px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.datosp{
+    padding: 5px 100px 5px 100px;
+    color: #c6c6c6;
+    background-color: #3e3e3f;
+}
+p{
+    margin: 2% 0 0 0;
+    color: #c6c6c6;
+}
