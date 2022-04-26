@@ -20,6 +20,11 @@ p {
   padding: 100px;
 }
 
+.active {
+  font-weight: bold !important;
+  text-decoration: underline !important;
+}
+
 .over p {
   margin-top: -15px;
 }

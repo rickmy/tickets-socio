@@ -1,0 +1,82 @@
+:root {
+  --negro: rgb(12, 12, 12);
+  --blanco: rgb(243, 240, 240);
+}
+
+/* ==================BUS================== */
+.__busContainerMain {
+  position: absolute;
+  /* display: none; flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px;
+}
+
+.foco-izq {
+  font-size: 40px;
+  transform: rotate(-150deg);
+  position: absolute;
+  color: white;
+  top: -15px;
+  left: 35px;
+}
+
+.foco-der {
+  font-size: 40px;
+  transform: rotate(-150deg);
+  position: absolute;
+  color: white;
+  top: -15px;
+  right: 35px;
+}
+
+._busContainer {
+  position: relative;
+  margin: 15px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* background-color: white; */
+  border: 3px solid black;
+  width: 250px;
+  height: min-content;
+  gap: 40px;
+  padding: 50px 10px 20px 10px;
+  border-radius: 40px 40px 10px 10px;
+}
+
+.asientos-der,
+.asientos-izq {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-rows: repeat( auto , minmax( 30px , 35px ) ); */
+  gap: 6px;
+  color: green;
+  font-size: 13px;
+}
+
+.asientos-der > div,
+.asientos-izq > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  font-weight: 500;
+  color: black;
+  font-size: 15px;
+  border-radius: 5px;
+  min-height: 42px;
+  cursor: pointer;
+}
+
+.asientos-der > div:hover,
+.asientos-izq > div:hover {
+  background-color: rgba(236, 234, 234, 0.952);
+}
+
+/* ==================*FIN BUS================== */

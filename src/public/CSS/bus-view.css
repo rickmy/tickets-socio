@@ -1,0 +1,29 @@
+.container-main {
+  display: flex;
+  justify-content: center;
+  /* background-color: aqua; */
+  margin-top: 50px;
+}
+
+.container-child {
+  display: flex;
+  min-width: 60%;
+  /* justify-content: space-evenly; */
+  /* background-color: green; */
+}
+
+.bus-partial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 15px;
+  /* background-color: red; */
+  flex-grow: 3;
+}
+
+.tablas-partial {
+  margin-left: 15px;
+  flex-grow: 7;
+  font-size: 14px;
+  /* background-color: blue; */
+}

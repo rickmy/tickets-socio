@@ -1,0 +1,46 @@
+<div class="detalle-partial-container">
+    <select name="bus" id="bus">
+        <option value="bus1">NRO. PISO 1</option>
+        <option value="bus1.2">NRO. PISO 2</option>
+    </select>
+
+    <div class="asientos">
+        <div>
+            <div>
+                <div class="alig-txt">
+                    <div class="circulo-rojo">
+                    </div>
+                    <div class="txt-bus">
+                        OCUPADOS
+                        <span id="ocupados">3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="alig-txt">
+                    <div class="circulo-transparente">
+                    </div>
+                    <div class="txt-bus">
+                        LIBRES
+                        <span id="ocupados">37</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bus-partial-container">
+        {{> bus }}
+    </div>
+
+    <div class="datos">
+        <div class="datos-placa">
+            <p>PQC-7003</p>
+        </div>
+        <div>
+            <P>Quito - Guayas</P>
+        </div>
+    </div>
+</div>

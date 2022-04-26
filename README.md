@@ -13,7 +13,6 @@
 - Ejecuta la app -> npm run dev
 - Desde el navegador dirijase a esta ruta -> http://localhost:3000
 
-# Users ( Rols )
+# Rol
 
-- Cliente: Nombre, Cedula, Direccion, clave, Telefono
-- Empleado: Cedula, Nombre, Direccion, Telefono, Cargo laboral ( ventas, servicio cliente etc )
+- Socio
