@@ -1,4 +1,4 @@
-/* ESTO NOS SERVIRA PARA AGREAGAR EL ACTIVE AL NOMBRE DE LA PASTAÑA EN EL NAVBAR DEPENDIENTE DE EN QUE PESTAÑA SE ENCUENTRE */
+ /* ESTO NOS SERVIRA PARA AGREAGAR EL ACTIVE AL NOMBRE DE LA PASTAÑA EN EL NAVBAR DEPENDIENTE DE EN QUE PESTAÑA SE ENCUENTRE */
 const { pathname } = window.location;
 const inicio = document.querySelector('.inicio');
 const bus = document.querySelector('.bus');
