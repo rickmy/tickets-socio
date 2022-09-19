@@ -57,6 +57,7 @@ app.use((req, res, next) => {
 // Rutas
 app.use(require('./routes/index.js'));
 app.use(require('./routes/authentication'));
+app.use(require('./routes/encomiendas'));
 // app.use(require('./routes/links'));
 app.use(require('./routes/socio'));
 
